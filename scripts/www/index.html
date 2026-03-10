@@ -623,8 +623,11 @@
             background: rgba(0, 0, 0, 0.3);
             z-index: 300;
             backdrop-filter: blur(15px);
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 60px 0;
             opacity: 0;
             transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -639,7 +642,7 @@
             width: 90%;
             max-width: 400px;
             border-radius: 32px;
-            padding: 32px 24px;
+            padding: 24px 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             transform: scale(0.85);
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -651,23 +654,23 @@
         }
 
         .import-export-icon {
-            width: 80px;
-            height: 80px;
+            width: 56px;
+            height: 56px;
             background: linear-gradient(135deg, #0062FF 0%, #25C78B 100%);
-            border-radius: 24px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
             color: white;
-            font-size: 36px;
+            font-size: 24px;
         }
 
         .import-export-card {
             background: #F7F8FA;
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 16px;
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 12px;
             cursor: pointer;
             transition: all 0.2s;
             border: 2px solid transparent;
@@ -690,36 +693,15 @@
             background: #E8F8F2;
         }
 
-        .import-export-card input[type="file"] {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .import-export-card.import {
-            display: block;
-            position: relative;
-        }
-
-        .import-export-card.import input[type="file"] {
-            position: absolute;
-            width: 0;
-            height: 0;
-            opacity: 0;
-            pointer-events: none;
-        }
-
         .import-export-card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 22px;
+            margin: 0 auto 8px;
+            font-size: 18px;
         }
 
         .import-export-card.export .import-export-card-icon {
@@ -733,29 +715,29 @@
         }
 
         .import-export-card-title {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 700;
             color: #1D1D1F;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .import-export-card-desc {
-            font-size: 13px;
+            font-size: 12px;
             color: #86868B;
         }
 
         .stats-info {
             background: #F2F2F7;
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 20px;
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 16px;
         }
 
         .stats-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 6px 0;
         }
 
         .stats-row:not(:last-child) {
@@ -764,52 +746,52 @@
 
         .stats-label {
             color: #86868B;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .stats-value {
             color: #1D1D1F;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         /* 设置区域样式 */
         .settings-section {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .settings-toggle-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px;
+            padding: 12px;
             background: #F2F2F7;
-            border-radius: 16px;
+            border-radius: 14px;
         }
 
         .settings-toggle-info {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 4px;
+            gap: 2px;
         }
 
         .settings-toggle-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             color: #1D1D1F;
         }
 
         .settings-toggle-desc {
-            font-size: 13px;
+            font-size: 12px;
             color: #86868B;
         }
 
         .settings-toggle-switch {
             position: relative;
             display: inline-block;
-            width: 51px;
-            height: 31px;
+            width: 44px;
+            height: 26px;
             flex-shrink: 0;
         }
 
@@ -828,14 +810,14 @@
             bottom: 0;
             background-color: #E5E5EA;
             transition: 0.3s;
-            border-radius: 31px;
+            border-radius: 26px;
         }
 
         .settings-toggle-slider:before {
             position: absolute;
             content: "";
-            height: 27px;
-            width: 27px;
+            height: 22px;
+            width: 22px;
             left: 2px;
             bottom: 2px;
             background-color: white;
@@ -849,13 +831,13 @@
         }
 
         .settings-toggle-switch input:checked + .settings-toggle-slider:before {
-            transform: translateX(20px);
+            transform: translateX(18px);
         }
 
         .settings-divider {
             height: 1px;
             background: #E5E5EA;
-            margin: 20px 0;
+            margin: 12px 0;
         }
 
         /* 标题可点击提示 */
@@ -991,11 +973,7 @@
     <!-- 设置 Modal -->
     <div id="importExportModal" onclick="if(event.target==this) requestCloseImportExportModal()">
         <div class="import-export-content">
-            <div class="import-export-icon">
-                <i class="fas fa-cog"></i>
-            </div>
-            <h3 class="text-xl font-bold text-[#1D1D1F] mb-2">设置</h3>
-            <p class="text-[#86868B] text-sm mb-6">自定义您的应用体验</p>
+            <h3 class="text-xl font-bold text-[#1D1D1F] mb-4">设置</h3>
             
             <!-- 导航栏滚动隐藏开关 -->
             <div class="settings-section">
@@ -1036,16 +1014,16 @@
                 <div class="import-export-card-desc">将所有数据导出为 JSON 文件</div>
             </div>
 
-            <label class="import-export-card import">
+            <div class="import-export-card import" onclick="triggerFileImport()">
                 <div class="import-export-card-icon">
                     <i class="fas fa-upload"></i>
                 </div>
                 <div class="import-export-card-title">导入数据</div>
                 <div class="import-export-card-desc">从 JSON 文件恢复数据</div>
-                <input type="file" id="importFileInput" accept=".json" onchange="importData(this)">
-            </label>
+                <input type="file" id="importFileInput" accept=".json,application/json" onchange="importData(this)" style="display:none">
+            </div>
 
-            <button onclick="requestCloseImportExportModal()" class="w-full p-4 bg-[#F2F2F7] text-[#86868B] rounded-2xl font-bold active:scale-95 transition-all mt-2">关闭</button>
+            <button onclick="requestCloseImportExportModal()" class="w-full p-3 bg-[#F2F2F7] text-[#86868B] rounded-xl font-bold active:scale-95 transition-all mt-2">关闭</button>
         </div>
     </div>
 
@@ -2046,6 +2024,15 @@
             document.getElementById('statsImageCount').textContent = imageCount;
         }
 
+        // 触发文件导入（兼容 WebView）
+        function triggerFileImport() {
+            const input = document.getElementById('importFileInput');
+            if (input) {
+                input.value = '';
+                input.click();
+            }
+        }
+
         function exportData() {
             const exportObj = {
                 version: '1.0',
@@ -2077,12 +2064,27 @@
 
         function importData(input) {
             const file = input.files[0];
-            if (!file) return;
+            if (!file) {
+                console.log('未选择文件');
+                return;
+            }
+
+            console.log('选择的文件:', file.name, file.type, file.size);
 
             const reader = new FileReader();
+            
+            reader.onerror = function(error) {
+                console.error('文件读取错误:', error);
+                showToast('文件读取失败');
+                input.value = '';
+            };
+            
             reader.onload = async function(e) {
                 try {
-                    const importObj = JSON.parse(e.target.result);
+                    const content = e.target.result;
+                    console.log('文件内容长度:', content.length);
+                    
+                    const importObj = JSON.parse(content);
 
                     if (!importObj.tasks || !Array.isArray(importObj.tasks)) {
                         showToast('无效的数据文件');
@@ -2098,8 +2100,8 @@
                     showToast('导入失败，文件格式错误');
                 }
             };
+            
             reader.readAsText(file);
-            input.value = '';
         }
 
         let pendingImportData = null;
